@@ -1,0 +1,149 @@
+.bhajan-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.bhajan-card {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(251, 243, 227, 0.1);
+  background: rgba(251, 243, 227, 0.04);
+  padding: 22px 24px;
+  transition: border-color 0.25s ease;
+}
+
+.bhajan-card:hover {
+  border-color: rgba(233, 150, 47, 0.4);
+}
+
+.bhajan-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.bhajan-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bhajan-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--parchment);
+}
+
+.bhajan-tag {
+  align-self: flex-start;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--peacock-soft);
+  background: rgba(14, 124, 123, 0.14);
+  padding: 3px 11px;
+  border-radius: 999px;
+}
+
+.bhajan-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bhajan-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.87rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 243, 227, 0.2);
+  background: transparent;
+  color: var(--text-on-deep);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.bhajan-actions button:hover {
+  border-color: var(--marigold-soft);
+  color: var(--marigold-soft);
+}
+
+.bhajan-actions button.play {
+  background: linear-gradient(135deg, var(--marigold), var(--sindoor));
+  border: none;
+  color: var(--parchment);
+}
+
+.bhajan-lyrics {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(251, 243, 227, 0.15);
+  white-space: pre-line;
+  color: var(--text-on-deep-dim);
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+/* Player modal */
+.player-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(15, 8, 30, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.player-box {
+  width: 100%;
+  max-width: 760px;
+  background: var(--dusk-900);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(251, 243, 227, 0.12);
+  overflow: hidden;
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.player-header h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--parchment);
+  font-size: 1.05rem;
+}
+
+.player-header button {
+  background: transparent;
+  border: none;
+  color: var(--text-on-deep-dim);
+}
+
+.player-frame-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: black;
+}
+
+.player-frame-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.player-empty {
+  padding: 50px 24px;
+  text-align: center;
+  color: var(--text-on-deep-dim);
+}

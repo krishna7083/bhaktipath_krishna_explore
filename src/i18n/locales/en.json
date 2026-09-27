@@ -1,0 +1,88 @@
+{
+  "app": {
+    "title": "Bhaktipath"
+  },
+  "splash": {
+    "chant": "पूंछरी के लौठा की हूप-हूप प्यारे.......",
+    "subtitle": "Sing along, then step onto the path of devotion",
+    "enter": "Enter Bhaktipath"
+  },
+  "nav": {
+    "home": "Home",
+    "bhajans": "Jai Jai Vaani",
+    "kathas": "Katha & Venues",
+    "gallery": "Photo Gallery",
+    "places": "Thakurji Darshan"
+  },
+  "home": {
+    "heroEyebrow": "Welcome to",
+    "heroTitle": "Bhaktipath",
+    "heroSubtitle": "One home for bhajans, katha schedules, darshan places and the memories we make along the way.",
+    "heroCta": "Begin exploring",
+    "bannerCaption": "जगन्नाथ जगन्नाथ जगन्नाथ रक्षमाम,महाबाहो महाबाहो महाबाहो पाहिमाम",
+    "categoriesTitle": "Where would you like to go?"
+  },
+  "category": {
+    "bhajans": {
+      "title": "Jai Jai Vaani",
+      "desc": "Bhajans and geets with lyrics, grouped by category, playable right here."
+    },
+    "kathas": {
+      "title": "Katha & Venues",
+      "desc": "Upcoming kathas with dates, venues and a tap-to-open map."
+    },
+    "gallery": {
+      "title": "Photo Gallery",
+      "desc": "Moments from Jai Jai, Jagannath, Pandharpur and more."
+    },
+    "places": {
+      "title": "Thakurji Darshan",
+      "desc": "Places of Shree Thakurji not to miss, in order of priority."
+    }
+  },
+  "bhajans": {
+    "pageTitle": "Jai Jai Vaani",
+    "pageSubtitle": "Every bhajan here carries its lyrics and a link to sing along on YouTube.",
+    "searchPlaceholder": "Search a bhajan…",
+    "allCategories": "All categories",
+    "viewLyrics": "View lyrics",
+    "hideLyrics": "Hide lyrics",
+    "playOnYoutube": "Play on YouTube",
+    "noVideoYet": "YouTube link coming soon",
+    "noResults": "No bhajans match your search yet.",
+    "addNote": "New here? Add your own bhajans in src/data/bhajans.js"
+  },
+  "kathas": {
+    "pageTitle": "Katha & Venues",
+    "pageSubtitle": "Where Jai Jai Vaani will be held next — tap a venue to open it in Google Maps.",
+    "viewOnMap": "Open in Google Maps",
+    "addNote": "Add real dates and venues anytime in src/data/kathas.js"
+  },
+  "gallery": {
+    "pageTitle": "Photo Gallery",
+    "pageSubtitle": "A growing album of our journeys together.",
+    "addNote": "Add your photos in src/data/gallery.js (and drop the files in public/images/gallery/)",
+    "emptySlot": "Add photo",
+    "section": {
+      "jaijai": "Jai Jai Vaani",
+      "jagannath": "Jagannath Puri",
+      "pandharpur": "Pandharpur"
+    }
+  },
+  "places": {
+    "pageTitle": "Thakurji Darshan",
+    "pageSubtitle": "Places of Shree Thakurji to visit without fail, in priority order.",
+    "viewOnMap": "Open in Google Maps",
+    "comingSoonTitle": "More places coming soon",
+    "comingSoonDesc": "This list will keep growing — the next darshan place will appear here.",
+    "addNote": "Add new places anytime in src/data/places.js"
+  },
+  "footer": {
+    "followUs": "Follow along",
+    "tagline": "Bhaktipath — built with devotion, still growing.",
+    "editedBy": "Made for the Bhaktipath family"
+  },
+  "language": {
+    "label": "Language"
+  }
+}

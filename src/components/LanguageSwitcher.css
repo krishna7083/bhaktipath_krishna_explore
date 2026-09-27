@@ -1,0 +1,38 @@
+.lang-switch {
+  position: relative;
+  display: inline-flex;
+}
+
+.lang-switch select {
+  appearance: none;
+  background: rgba(251, 243, 227, 0.08);
+  border: 1px solid rgba(251, 243, 227, 0.25);
+  color: var(--text-on-deep);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 32px 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.lang-switch select:hover,
+.lang-switch select:focus-visible {
+  border-color: var(--marigold-soft);
+}
+
+.lang-switch::after {
+  content: "▾";
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--marigold-soft);
+  pointer-events: none;
+}
+
+.lang-switch select option {
+  color: var(--ink);
+}

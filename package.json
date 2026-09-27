@@ -1,0 +1,24 @@
+{
+  "name": "bhaktipath",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bhaktipath — a spiritual home for bhajans, kathas, darshan places and photo memories.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^11.2.10",
+    "i18next": "^23.11.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^14.1.2",
+    "react-router-dom": "^6.24.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.3.1"
+  }
+}
