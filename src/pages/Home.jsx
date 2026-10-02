@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Banner from "../components/Banner";
 import CategoryCard from "../components/CategoryCard";
+import GurudevShowcase from "../components/GurudevShowcase";
 import { categories } from "../data/categories";
 import "./Home.css";
 
@@ -10,6 +11,9 @@ export default function Home() {
 
   return (
     <div className="page container">
+      {/* Pujya Gurudev Ji Showcase placed at the top */}
+      <GurudevShowcase />
+
       <section className="hero">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

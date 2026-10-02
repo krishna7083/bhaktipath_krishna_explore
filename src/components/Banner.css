@@ -2,14 +2,25 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  min-height: 300px;
+  min-height: 320px;
   display: flex;
   align-items: flex-end;
   padding: 28px;
   background:
-    radial-gradient(120% 100% at 15% 0%, rgba(233, 150, 47, 0.35), transparent 55%),
-    linear-gradient(135deg, var(--sindoor), var(--dusk-800) 70%);
-  box-shadow: var(--shadow-deep);
+    radial-gradient(120% 100% at 15% 0%, rgba(255, 140, 0, 0.25), transparent 55%),
+    linear-gradient(135deg, var(--vermillion), var(--bg-tertiary) 70%);
+  box-shadow:
+    var(--shadow-deep),
+    0 0 60px -20px rgba(255, 140, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.08);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.banner:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    var(--shadow-deep),
+    0 0 80px -20px rgba(255, 140, 0, 0.35);
 }
 
 .banner-glyph {
@@ -19,7 +30,7 @@
   align-items: center;
   justify-content: center;
   font-size: clamp(6rem, 18vw, 11rem);
-  color: rgba(251, 243, 227, 0.12);
+  color: rgba(255, 215, 0, 0.08);
   font-family: var(--font-display);
   animation: banner-pulse 6s ease-in-out infinite;
 }
@@ -31,10 +42,11 @@
 
 .banner-caption {
   position: relative;
-  color: var(--parchment);
-  font-size: 0.85rem;
-  background: rgba(20, 10, 41, 0.45);
-  padding: 8px 14px;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  background: rgba(8, 4, 20, 0.55);
+  padding: 10px 18px;
   border-radius: 999px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
 }

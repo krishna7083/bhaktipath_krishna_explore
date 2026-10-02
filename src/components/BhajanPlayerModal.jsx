@@ -18,16 +18,31 @@ export default function BhajanPlayerModal({ bhajan, onClose }) {
         >
           <motion.div
             className="player-box"
-            initial={{ scale: 0.94, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.96, opacity: 0 }}
-            transition={{ duration: 0.22 }}
+            initial={{ scale: 0.88, opacity: 0, y: 30 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Header with Equalizer & Spinning Vinyl Disc */}
             <div className="player-header">
-              <h4>{bhajan.title}</h4>
+              <div className="player-title-box">
+                <div className="modal-vinyl-disc spinning">
+                  <div className="vinyl-hole" />
+                </div>
+                <div>
+                  <h4>{bhajan.title}</h4>
+                  <div className="modal-playing-badge">
+                    <span className="eq-bar bar1" />
+                    <span className="eq-bar bar2" />
+                    <span className="eq-bar bar3" />
+                    <span className="eq-bar bar4" />
+                    <span>Now Playing</span>
+                  </div>
+                </div>
+              </div>
               <button onClick={onClose} aria-label="Close">
-                <CloseIcon width={20} height={20} />
+                <CloseIcon width={22} height={22} />
               </button>
             </div>
 

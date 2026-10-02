@@ -1,38 +1,31 @@
 .lang-switch {
-  position: relative;
   display: inline-flex;
-}
-
-.lang-switch select {
-  appearance: none;
-  background: rgba(251, 243, 227, 0.08);
-  border: 1px solid rgba(251, 243, 227, 0.25);
-  color: var(--text-on-deep);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 8px 32px 8px 14px;
+  align-items: center;
+  gap: 4px;
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 215, 0, 0.1);
   border-radius: 999px;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
+  padding: 3px;
+  backdrop-filter: blur(8px);
 }
 
-.lang-switch select:hover,
-.lang-switch select:focus-visible {
-  border-color: var(--marigold-soft);
+.lang-switch button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-dim);
+  transition: all 0.3s ease;
 }
 
-.lang-switch::after {
-  content: "▾";
-  position: absolute;
-  right: 13px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.7rem;
-  color: var(--marigold-soft);
-  pointer-events: none;
+.lang-switch button.active {
+  background: linear-gradient(135deg, var(--amber-500), var(--saffron));
+  color: #fff;
+  box-shadow: 0 3px 10px -3px rgba(255, 140, 0, 0.3);
 }
 
-.lang-switch select option {
-  color: var(--ink);
+.lang-switch button:not(.active):hover {
+  color: var(--text-primary);
 }

@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
 import BhajanCard from "../components/BhajanCard";
 import BhajanPlayerModal from "../components/BhajanPlayerModal";
 import { bhajans } from "../data/bhajans";
@@ -25,13 +26,23 @@ export default function JaiJaiVaani() {
 
   return (
     <div className="page container">
-      <div className="page-head">
+      <motion.div
+        className="page-head"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <h1>{t("bhajans.pageTitle")}</h1>
         <p>{t("bhajans.pageSubtitle")}</p>
         <span className="dev-note">{t("bhajans.addNote")}</span>
-      </div>
+      </motion.div>
 
-      <div className="bhajan-toolbar">
+      <motion.div
+        className="bhajan-toolbar"
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
         <input
           type="text"
           placeholder={t("bhajans.searchPlaceholder")}
@@ -46,16 +57,34 @@ export default function JaiJaiVaani() {
             </option>
           ))}
         </select>
-      </div>
+      </motion.div>
 
       {filtered.length === 0 ? (
         <p className="bhajan-empty">{t("bhajans.noResults")}</p>
       ) : (
-        <div className="bhajan-list">
+        <motion.div
+          className="bhajan-list"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.08,
+              },
+            },
+          }}
+        >
           {filtered.map((b) => (
-            <BhajanCard key={b.id} bhajan={b} onPlay={setNowPlaying} />
+            <BhajanCard
+              key={b.id}
+              bhajan={b}
+              onPlay={setNowPlaying}
+              isPlaying={nowPlaying?.id === b.id}
+            />
           ))}
-        </div>
+        </motion.div>
       )}
 
       <BhajanPlayerModal bhajan={nowPlaying} onClose={() => setNowPlaying(null)} />

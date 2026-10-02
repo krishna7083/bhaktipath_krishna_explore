@@ -3,7 +3,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 46px;
   align-items: center;
-  padding: 30px 0 60px;
+  padding: 40px 0 70px;
 }
 
 @media (max-width: 900px) {
@@ -13,43 +13,80 @@
 }
 
 .hero-eyebrow {
-  color: var(--peacock-soft);
-  font-size: 0.95rem;
+  color: var(--teal-soft);
+  font-size: 0.92rem;
   font-weight: 600;
   margin-bottom: 10px;
-  display: block;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(46, 196, 178, 0.08);
+  border: 1px solid rgba(46, 196, 178, 0.2);
+  animation: eyebrow-glow 3s ease-in-out infinite;
+}
+
+@keyframes eyebrow-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46, 196, 178, 0); }
+  50% { box-shadow: 0 0 20px -5px rgba(46, 196, 178, 0.3); }
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  color: var(--parchment);
-  text-shadow: 0 0 60px rgba(233, 150, 47, 0.28);
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  background: linear-gradient(
+    135deg,
+    #ffd700 0%,
+    #fff 25%,
+    #ff8c00 50%,
+    #ffd700 75%,
+    #fff 100%
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hero-text-shimmer 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.2));
+  line-height: 1.1;
+}
+
+@keyframes hero-text-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero-subtitle {
-  margin-top: 18px;
+  margin-top: 20px;
   max-width: 480px;
-  color: var(--text-on-deep-dim);
-  font-size: 1.08rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .hero-cta {
-  margin-top: 30px;
+  margin-top: 32px;
+  font-size: 1.05rem;
 }
 
 .home-categories {
-  padding: 20px 0 40px;
+  padding: 30px 0 50px;
 }
 
 .home-categories h2 {
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  color: var(--parchment);
-  margin-bottom: 22px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  background: linear-gradient(135deg, var(--text-primary), var(--amber-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 28px;
 }
 
+/* Floating petal animation (kept for backward compat) */
 .floating-petal {
   position: absolute;
-  color: var(--marigold-soft);
+  color: var(--amber-400);
   opacity: 0.35;
   animation: float-petal linear infinite;
   pointer-events: none;

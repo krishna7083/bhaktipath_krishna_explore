@@ -1,50 +1,64 @@
 /* ───────────────────────────────────────────────────────────────────────
-   BHAKTIPATH — DESIGN TOKENS
-   Change a hex value here and it updates everywhere on the site.
-   See EDITING_GUIDE.md → "Changing colours and fonts".
+   BHAKTIPATH — PREMIUM DESIGN SYSTEM (v2.0)
+   A rich, celestial dark theme with saffron-gold accents,
+   glassmorphism, animated gradients, and divine aesthetics.
    ─────────────────────────────────────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Yatra+One&family=Hind:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yatra+One&family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-  /* -- Core palette: dusk sky, marigold, peacock, sindoor, temple gold -- */
-  --dusk-950: #140a29;
-  --dusk-900: #1b1035;
-  --dusk-800: #251444;
-  --dusk-700: #33195c;
-  --marigold: #e9962f;
-  --marigold-soft: #f3b969;
-  --sindoor: #8c1d34;
-  --sindoor-soft: #b8465f;
-  --peacock: #0e7c7b;
-  --peacock-soft: #35a6a1;
-  --gold: #c89b3c;
-  --parchment: #fbf3e3;
-  --parchment-dim: #efe4cc;
-  --ink: #241734;
+  /* -- Premium Dark Palette -- */
+  --bg-primary: #080414;
+  --bg-secondary: #0d0820;
+  --bg-tertiary: #120c2a;
+  --bg-elevated: #181235;
+  --bg-card: rgba(18, 12, 42, 0.65);
 
-  /* -- Semantic roles -- */
-  --bg-deep: var(--dusk-900);
-  --bg-deep-alt: var(--dusk-950);
-  --bg-panel: var(--parchment);
-  --text-on-deep: var(--parchment);
-  --text-on-deep-dim: #cfc2e8;
-  --text-on-panel: var(--ink);
-  --accent: var(--marigold);
-  --accent-soft: var(--marigold-soft);
+  /* -- Saffron-Gold Accent System -- */
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --saffron: #ff8c00;
+  --saffron-glow: rgba(255, 140, 0, 0.5);
+  --gold: #ffd700;
+  --gold-soft: rgba(255, 215, 0, 0.15);
+
+  /* -- Sacred Colors -- */
+  --vermillion: #e63946;
+  --vermillion-soft: #f07167;
+  --teal: #0e7c7b;
+  --teal-soft: #2ec4b6;
+  --purple-glow: rgba(139, 92, 246, 0.3);
+  --rose-glow: rgba(244, 63, 94, 0.25);
+
+  /* -- Glassmorphism -- */
+  --glass-bg: rgba(18, 12, 42, 0.45);
+  --glass-border: rgba(255, 215, 0, 0.1);
+  --glass-border-hover: rgba(255, 215, 0, 0.3);
+  --glass-blur: blur(20px);
+
+  /* -- Text -- */
+  --text-primary: #f0e7ff;
+  --text-secondary: #c5b8e0;
+  --text-dim: #8b7faa;
+  --text-accent: var(--amber-400);
 
   /* -- Type -- */
   --font-display: "Yatra One", "Hind", system-ui, sans-serif;
-  --font-body: "Hind", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", "Hind", system-ui, -apple-system, sans-serif;
 
   /* -- Layout -- */
-  --page-max: 1180px;
-  --radius-lg: 28px;
-  --radius-md: 18px;
+  --page-max: 1200px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
   --radius-sm: 10px;
-  --shadow-deep: 0 20px 50px -20px rgba(20, 10, 41, 0.55);
+  --shadow-deep: 0 25px 60px -20px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px -10px var(--saffron-glow);
 
   color-scheme: dark;
 }
+
+/* ── RESET & BASE ─────────────────────────────────────────────────────── */
 
 * {
   box-sizing: border-box;
@@ -58,9 +72,15 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: var(--bg-deep);
-  color: var(--text-on-deep);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Animated background gradient */
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(244, 63, 94, 0.04) 0%, transparent 50%);
 }
 
 h1, h2, h3 {
@@ -101,11 +121,37 @@ img {
 }
 
 :focus-visible {
-  outline: 2px solid var(--marigold);
+  outline: 2px solid var(--amber-400);
   outline-offset: 3px;
 }
 
-/* -- Shared layout helpers -- */
+/* -- Selection styling -- */
+::selection {
+  background: rgba(255, 140, 0, 0.3);
+  color: #fff;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--amber-500), var(--saffron));
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--amber-400), var(--amber-600));
+}
+
+/* ── SHARED LAYOUT HELPERS ────────────────────────────────────────────── */
+
 .container {
   width: 100%;
   max-width: var(--page-max);
@@ -129,12 +175,22 @@ img {
 
 .page-head h1 {
   font-size: clamp(2rem, 4vw, 2.9rem);
-  color: var(--accent-soft);
+  background: linear-gradient(135deg, var(--gold), var(--saffron), var(--amber-400));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-gradient-shift 5s ease-in-out infinite;
+}
+
+@keyframes text-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .page-head p {
   margin-top: 12px;
-  color: var(--text-on-deep-dim);
+  color: var(--text-dim);
   font-size: 1.05rem;
 }
 
@@ -144,63 +200,94 @@ img {
   gap: 8px;
   align-items: center;
   font-size: 0.82rem;
-  color: var(--peacock-soft);
-  border: 1px dashed rgba(53, 166, 161, 0.5);
+  color: var(--teal-soft);
+  border: 1px dashed rgba(46, 196, 178, 0.35);
   border-radius: 999px;
   padding: 6px 14px;
-  background: rgba(14, 124, 123, 0.08);
+  background: rgba(46, 196, 178, 0.06);
+  backdrop-filter: blur(8px);
 }
+
+/* ── BUTTONS ──────────────────────────────────────────────────────────── */
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 26px;
+  padding: 14px 28px;
   border-radius: 999px;
   border: none;
   font-size: 1rem;
   font-weight: 600;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--marigold), var(--sindoor));
-  color: var(--parchment);
-  box-shadow: 0 14px 30px -12px rgba(233, 150, 47, 0.55);
+  background: linear-gradient(135deg, var(--amber-500), var(--saffron), var(--vermillion));
+  background-size: 200% 200%;
+  color: #fff;
+  box-shadow: 0 14px 35px -12px rgba(255, 140, 0, 0.5);
+  animation: btn-gradient 4s ease-in-out infinite;
+}
+
+@keyframes btn-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px -12px rgba(233, 150, 47, 0.7);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 50px -12px rgba(255, 140, 0, 0.65);
 }
 
 .btn-ghost {
-  background: transparent;
-  border: 1px solid rgba(251, 243, 227, 0.35);
-  color: var(--text-on-deep);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  backdrop-filter: var(--glass-blur);
 }
 
 .btn-ghost:hover {
-  border-color: var(--marigold-soft);
-  color: var(--marigold-soft);
+  border-color: var(--glass-border-hover);
+  color: var(--amber-400);
+  background: rgba(255, 191, 0, 0.06);
 }
 
-/* Shared "open in Google Maps" pill, used by Katha and Place cards */
+/* ── MAP LINK ─────────────────────────────────────────────────────────── */
+
 .map-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid var(--peacock-soft);
-  color: var(--peacock-soft);
+  border: 1px solid var(--teal-soft);
+  color: var(--teal-soft);
   font-size: 0.88rem;
   font-weight: 600;
   white-space: nowrap;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(8px);
 }
 
 .map-link:hover {
-  background: var(--peacock-soft);
-  color: var(--dusk-950);
+  background: var(--teal-soft);
+  color: var(--bg-primary);
+  box-shadow: 0 8px 25px -8px rgba(46, 196, 178, 0.4);
+  transform: translateY(-2px);
 }

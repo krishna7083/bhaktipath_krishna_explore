@@ -1,19 +1,35 @@
 .bhajan-list {
   display: grid;
-  gap: 16px;
+  gap: 22px;
   margin-top: 28px;
 }
 
 .bhajan-card {
+  position: relative;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(251, 243, 227, 0.1);
-  background: rgba(251, 243, 227, 0.04);
-  padding: 22px 24px;
-  transition: border-color 0.25s ease;
+  border: 1px solid rgba(255, 215, 0, 0.08);
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  padding: 24px 26px;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
 }
 
 .bhajan-card:hover {
-  border-color: rgba(233, 150, 47, 0.4);
+  border-color: rgba(255, 140, 0, 0.35);
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 
+    0 14px 40px -10px rgba(255, 140, 0, 0.2),
+    0 0 20px -5px rgba(255, 215, 0, 0.15);
+}
+
+.bhajan-card.is-playing {
+  border-color: #ffd700;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(18, 10, 36, 0.85));
+  box-shadow: 
+    0 16px 50px -10px rgba(255, 140, 0, 0.35),
+    0 0 30px -5px rgba(255, 215, 0, 0.25);
 }
 
 .bhajan-top {
@@ -21,78 +37,203 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
 }
 
 .bhajan-title-wrap {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+}
+
+.bhajan-meta-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bhajan-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .bhajan-title {
   font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--parchment);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .bhajan-tag {
   align-self: flex-start;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--peacock-soft);
-  background: rgba(14, 124, 123, 0.14);
-  padding: 3px 11px;
+  color: var(--amber-400);
+  background: rgba(255, 191, 0, 0.12);
+  border: 1px solid rgba(255, 191, 0, 0.2);
+  padding: 4px 14px;
   border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+/* Vinyl Record Animation */
+.vinyl-disc-container {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.vinyl-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2a2a2a 0%, #111 60%, #000 100%);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: rotate-vinyl 6s linear infinite;
+}
+
+.bhajan-card:hover .vinyl-disc,
+.bhajan-card.is-playing .vinyl-disc {
+  animation-duration: 3s;
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.vinyl-groove {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.vinyl-center-label {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff8c00, #ffd700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl-hole {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #000;
+}
+
+@keyframes rotate-vinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Dynamic Sound Equalizer Animation */
+.sound-equalizer {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+  padding: 0 4px;
+}
+
+.eq-bar {
+  width: 3px;
+  background: linear-gradient(180deg, #ffd700, #ff8c00);
+  border-radius: 999px;
+  animation: eq-bounce 1s ease-in-out infinite alternate;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.eq-bar.bar1 { height: 14px; animation-delay: 0.1s; }
+.eq-bar.bar2 { height: 8px;  animation-delay: 0.3s; }
+.eq-bar.bar3 { height: 16px; animation-delay: 0.2s; }
+.eq-bar.bar4 { height: 10px; animation-delay: 0.4s; }
+
+@keyframes eq-bounce {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
 }
 
 .bhajan-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .bhajan-actions button {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-size: 0.87rem;
+  gap: 8px;
+  font-size: 0.88rem;
   font-weight: 600;
-  padding: 9px 16px;
+  padding: 10px 20px;
   border-radius: 999px;
-  border: 1px solid rgba(251, 243, 227, 0.2);
-  background: transparent;
-  color: var(--text-on-deep);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  border: 1px solid rgba(255, 215, 0, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
 }
 
 .bhajan-actions button:hover {
-  border-color: var(--marigold-soft);
-  color: var(--marigold-soft);
+  border-color: var(--amber-400);
+  color: var(--amber-400);
+  background: rgba(255, 191, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .bhajan-actions button.play {
-  background: linear-gradient(135deg, var(--marigold), var(--sindoor));
+  background: linear-gradient(135deg, #ff8c00, #ff4500);
   border: none;
-  color: var(--parchment);
+  color: #fff;
+  box-shadow: 0 6px 20px -5px rgba(255, 140, 0, 0.45);
 }
 
+.bhajan-actions button.play:hover {
+  box-shadow: 0 8px 28px -5px rgba(255, 140, 0, 0.7);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.bhajan-actions button.now-playing-btn {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #000;
+  font-weight: 700;
+}
+
+/* Animated Lyrics Section */
 .bhajan-lyrics {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px dashed rgba(251, 243, 227, 0.15);
-  white-space: pre-line;
-  color: var(--text-on-deep-dim);
-  font-size: 0.95rem;
-  line-height: 1.85;
+  overflow: hidden;
 }
 
-/* Player modal */
+.lyrics-content {
+  margin-top: 18px;
+  padding: 20px 22px;
+  border-left: 3px solid #ffd700;
+  border-radius: 0 16px 16px 0;
+  background: rgba(18, 10, 36, 0.6);
+  white-space: pre-line;
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.9;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Player Modal Enhancements */
 .player-overlay {
   position: fixed;
   inset: 0;
-  z-index: 80;
-  background: rgba(15, 8, 30, 0.8);
+  z-index: 99;
+  background: rgba(8, 4, 20, 0.88);
+  backdrop-filter: blur(14px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,31 +242,80 @@
 
 .player-box {
   width: 100%;
-  max-width: 760px;
-  background: var(--dusk-900);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(251, 243, 227, 0.12);
+  max-width: 800px;
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
   overflow: hidden;
+  box-shadow: 0 35px 90px -20px rgba(0, 0, 0, 0.8);
 }
 
 .player-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 18px 24px;
+  background: linear-gradient(90deg, rgba(255, 140, 0, 0.1), transparent);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.player-title-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.modal-vinyl-disc {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff8c00 0%, #111 60%, #000 100%);
+  border: 2px solid #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotate-vinyl 4s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.modal-playing-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
 }
 
 .player-header h4 {
   font-family: var(--font-display);
-  font-weight: 400;
-  color: var(--parchment);
-  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.15rem;
 }
 
 .player-header button {
-  background: transparent;
-  border: none;
-  color: var(--text-on-deep-dim);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player-header button:hover {
+  color: #ffd700;
+  border-color: #ffd700;
+  background: rgba(255, 191, 0, 0.15);
+  transform: scale(1.1);
 }
 
 .player-frame-wrap {
@@ -143,7 +333,8 @@
 }
 
 .player-empty {
-  padding: 50px 24px;
+  padding: 60px 24px;
   text-align: center;
-  color: var(--text-on-deep-dim);
+  color: var(--text-dim);
+  font-size: 1.1rem;
 }
