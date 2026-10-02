@@ -1,0 +1,161 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   DEVOTIONAL BACKGROUND MUSIC PLAYER WIDGET
+   ─────────────────────────────────────────────────────────────────────── */
+
+.bg-music-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 95;
+}
+
+.bg-music-widget {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px 10px 14px;
+  border-radius: 999px;
+  background: rgba(18, 10, 36, 0.85);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(255, 140, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+}
+
+.bg-music-widget:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: #ffd700;
+  box-shadow: 
+    0 16px 45px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(255, 215, 0, 0.4);
+  background: rgba(18, 10, 36, 0.95);
+}
+
+.bg-music-widget.playing {
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.bg-music-widget.paused {
+  border-color: rgba(255, 255, 255, 0.15);
+  opacity: 0.85;
+}
+
+/* Ambient Pulse Glow */
+.bg-music-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(255, 191, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.6;
+  animation: bg-music-aura 3s ease-in-out infinite alternate;
+}
+
+@keyframes bg-music-aura {
+  0% { opacity: 0.4; transform: scale(0.98); }
+  100% { opacity: 0.9; transform: scale(1.05); }
+}
+
+/* Icon / Equalizer Wrap */
+.bg-music-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 215, 0, 0.1));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bg-music-symbol {
+  font-size: 0.95rem;
+}
+
+/* Equalizer Bars */
+.bg-music-eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.bg-music-eq .eq-bar {
+  width: 2.5px;
+  background: linear-gradient(180deg, #ffd700, #ff8c00);
+  border-radius: 999px;
+  animation: bg-eq-bounce 0.8s ease-in-out infinite alternate;
+}
+
+.bg-music-eq .bar1 { height: 12px; animation-delay: 0.1s; }
+.bg-music-eq .bar2 { height: 6px;  animation-delay: 0.25s; }
+.bg-music-eq .bar3 { height: 14px; animation-delay: 0.15s; }
+
+@keyframes bg-eq-bounce {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* Text Info */
+.bg-music-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.bg-music-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 0.02em;
+}
+
+.bg-music-status {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+}
+
+/* Mute Button */
+.bg-music-mute-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 4px;
+}
+
+.bg-music-mute-btn:hover {
+  background: rgba(255, 191, 0, 0.2);
+  border-color: #ffd700;
+  transform: scale(1.1);
+}
+
+/* Tooltip */
+.bg-music-tooltip {
+  position: absolute;
+  bottom: 120%;
+  right: 0;
+  white-space: nowrap;
+  background: rgba(8, 4, 20, 0.92);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  color: #ffd700;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}

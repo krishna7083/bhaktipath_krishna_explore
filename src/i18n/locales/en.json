@@ -4,7 +4,7 @@
   },
   "splash": {
     "chant": "पूंछरी के लौठा की हूप-हूप प्यारे.......",
-    "subtitle": "Sing along, then step onto the path of devotion",
+    "subtitle": "kyaa baat hai...chale jai jai se milnee ???",
     "enter": "Enter Bhaktipath"
   },
   "nav": {
@@ -21,9 +21,9 @@
     "heroCta": "Begin exploring",
     "bannerCaption": "जगन्नाथ जगन्नाथ जगन्नाथ रक्षमाम,महाबाहो महाबाहो महाबाहो पाहिमाम",
     "categoriesTitle": "Where would you like to go?",
-    "gurudevBadge": "Divine Grace",
-    "gurudevTitle": "Pujya Gurudev Ji",
-    "gurudevSubtitle": "Guiding light on our journey of devotion and surrender.",
+    "gurudevBadge": "Jai Jagnnath | Ram Krushn Hari",
+    "gurudevTitle": "दर्शन लाभ || भावविभोर || शीतलता",
+    "gurudevSubtitle": "पूंछरी के लौठा की हूप-हूप प्यारे.......",
     "gurudevCaption1": "Pujya Gurudev Ji",
     "gurudevCaption2": "Pujya Gurudev Ji Darshan",
     "gurudevCaption3": "Param Pujya Gurudev",
@@ -32,7 +32,8 @@
     "gurudevCaption6": "Gurudev Satsang Smriti",
     "gurudevCaption7": "Gurudev Ashirvad",
     "gurudevCaption8": "Kripalu Gurudev Ji",
-    "gurudevCaption9": "Bhaktipath Prerna"
+    "gurudevCaption9": "Bhaktipath Prerna",
+    "girdharlalCaption1": "Pyare Shri Girdharlal ki Jai.."
   },
   "category": {
     "bhajans": {

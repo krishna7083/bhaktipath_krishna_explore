@@ -17,7 +17,6 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
-          <span className="brand-om" aria-hidden="true">ॐ</span>
           {t("app.title")}
         </NavLink>
 

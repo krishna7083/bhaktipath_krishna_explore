@@ -22,7 +22,6 @@ export default function SplashScreen({ onEnter }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
-        <span className="splash-om" aria-hidden="true">ॐ</span>
         <h1 className="splash-chant">{t("splash.chant")}</h1>
         <p className="splash-subtitle">{t("splash.subtitle")}</p>
         <button className="btn btn-primary" onClick={onEnter}>

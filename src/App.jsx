@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import SplashScreen from "./components/SplashScreen";
+import BackgroundMusic from "./components/BackgroundMusic";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import JaiJaiVaani from "./pages/JaiJaiVaani";
@@ -9,10 +10,6 @@ import KathaVenues from "./pages/KathaVenues";
 import PhotoGallery from "./pages/PhotoGallery";
 import ThakurjiPlaces from "./pages/ThakurjiPlaces";
 
-// The splash chant shows once per browser session (per tab). Close the tab
-// and open the site again, and it greets you with the chant once more.
-// To make it show on every single visit, delete the sessionStorage lines
-// below. See EDITING_GUIDE.md → "Changing when the splash screen appears".
 const SPLASH_KEY = "bhaktipath-splash-seen";
 
 export default function App() {
@@ -31,6 +28,8 @@ export default function App() {
         {!entered && <SplashScreen onEnter={handleEnter} />}
       </AnimatePresence>
 
+      <BackgroundMusic isEntered={entered} />
+
       {entered && (
         <Routes>
           <Route element={<Layout />}>
@@ -39,8 +38,6 @@ export default function App() {
             <Route path="/katha-venues" element={<KathaVenues />} />
             <Route path="/photo-gallery" element={<PhotoGallery />} />
             <Route path="/thakurji-places" element={<ThakurjiPlaces />} />
-            {/* TODO(ADD-CATEGORY): add a matching <Route> here for any
-                new category you add in src/data/categories.js */}
           </Route>
         </Routes>
       )}

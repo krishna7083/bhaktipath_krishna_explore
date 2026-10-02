@@ -37,24 +37,14 @@ const images = [
     captionKey: "home.gurudevCaption5",
   },
   {
-    src: "/images/gurudev_6.jpg",
-    alt: "Pujya Gurudev Ji 6",
-    captionKey: "home.gurudevCaption6",
-  },
-  {
-    src: "/images/gurudev_7.png",
-    alt: "Pujya Gurudev Ji 7",
-    captionKey: "home.gurudevCaption7",
-  },
-  {
-    src: "/images/gurudev_8.png",
-    alt: "Pujya Gurudev Ji 8",
-    captionKey: "home.gurudevCaption8",
-  },
-  {
     src: "/images/gurudev_9.jpg",
     alt: "Pujya Gurudev Ji 9",
     captionKey: "home.gurudevCaption9",
+  },
+  {
+    src: "/images/girdharlal_1.jpg",
+    alt: "Param Pujya Shri Girdharlal Ji",
+    captionKey: "home.girdharlalCaption1",
   },
 ];
 
@@ -145,12 +135,12 @@ export default function GurudevShowcase() {
     setCurrentIndex((prev) => (prev - 1 + total) % total);
   }, [total]);
 
-  // Auto-sliding interval (3.5 seconds)
+  // Auto-sliding interval (2 seconds)
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
       nextSlide();
-    }, 3500);
+    }, 2000);
     return () => clearInterval(timer);
   }, [isPaused, nextSlide]);
 
